@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: go-serv
+spec: 
+  replicas: 2
+  selector:
+    matchLabels:
+      name: go-serv
+  template:
+    metadata:
+      labels:
+        name: go-serv
+    spec:
+      terminationGracePeriodSeconds: 30
+      containers:
+      - name: go-serv
+        image: quay.io/cosx/wimd
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: cosx-pull-secret
+
+
+
