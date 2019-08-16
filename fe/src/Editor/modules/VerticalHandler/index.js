@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({viewWidths, setViewWidths}) => {
+export default ({setViewWidths}) => {
   const handleDrag = function(event) {
     const available = 98;
     const screenWidth = window.outerWidth;
