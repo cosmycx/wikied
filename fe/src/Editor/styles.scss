@@ -1,0 +1,45 @@
+$light-grey: #ccc;
+.editor {
+  display: flex;
+  &__markdown {
+    padding: 10px;
+  }
+  &__vertical-handler {
+    height: 100%;
+    width: 10px;
+    background: blue;
+    height: 100vh;
+    cursor: pointer;
+    position: relative;
+    &:before {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      content: '';
+      width: 0; 
+      height: 0; 
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent; 
+      border-right:10px solid blue;
+
+    }
+    &:after {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      content: '';
+      width: 0; 
+      height: 0; 
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid blue;
+    }
+  }
+  &__preview {
+    padding: 10px;
+    & code {
+      background: $light-grey;
+      padding: 5px;
+    }
+  }
+}
