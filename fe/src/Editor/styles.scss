@@ -1,6 +1,7 @@
 $light-grey: #ccc;
 .editor {
   display: flex;
+  max-height: 100vh;
   &__markdown {
     padding: 10px;
   }
@@ -20,7 +21,7 @@ $light-grey: #ccc;
       height: 0; 
       border-top: 10px solid transparent;
       border-bottom: 10px solid transparent; 
-      border-right:10px solid white;
+      border-right: 10px solid white;
 
     }
     &:after {
@@ -37,6 +38,7 @@ $light-grey: #ccc;
   }
   &__preview {
     padding: 10px;
+    overflow-y: scroll;
     & code {
       background: $light-grey;
       padding: 5px;
