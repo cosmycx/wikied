@@ -5,10 +5,13 @@ import {Route} from 'react-router-dom';
 
 function App() {
   return (
-    <div>
+    <>
       <Route path="/markdown/edit" component={Editor} />
-      <Route path="/markdown" component={MarkdownOutput} /> 
-    </div>
+      <Route path="/user/:userId/markdown/:markdownId" render={(props) => {
+        return <MarkdownOutput markdown="# Here is some markdown" {...props}/>
+      }} />
+      <Route exact path="/" render={()=> <div>Home</div>} />
+    </>
   );
 }
 
