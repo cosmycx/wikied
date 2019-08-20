@@ -1,4 +1,5 @@
-$light-grey: #ccc;
+@import "../variables.scss";
+
 .editor {
   display: flex;
   max-height: 100vh;
@@ -49,14 +50,6 @@ $light-grey: #ccc;
       border-top: 10px solid transparent;
       border-bottom: 10px solid transparent;
       border-left: 10px solid white;
-    }
-  }
-  &__preview {
-    padding: 10px;
-    overflow-y: scroll;
-    & code {
-      background: $light-grey;
-      padding: 5px;
     }
   }
 }
