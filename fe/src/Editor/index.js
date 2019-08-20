@@ -1,3 +1,1 @@
-import EditorComponent from './Editor.component';
-
-export default EditorComponent;
+export { default } from './Editor.component';

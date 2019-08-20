@@ -1,3 +1,1 @@
-import MarkdownComponent from './Markdown.component';
-
-export default MarkdownComponent;
+export {default} from './Markdown.component';

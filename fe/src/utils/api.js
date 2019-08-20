@@ -9,7 +9,7 @@ function toJSON(response) {
 }
 
 export function saveMarkdownFiles(body, user) {
-  alert(user, 'your markdown is all saved');
+  alert(user + ' your markdown is all saved!');
   console.log(body);
   //return fetch(ES_API).then(toJSON);
 }
