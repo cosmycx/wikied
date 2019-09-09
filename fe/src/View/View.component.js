@@ -14,8 +14,8 @@ function View(props) {
   const { docId } = props;
   useEffect(() => {
     const fetchMarkdown = async () => {
-      const markdown = await getMarkdown(docId);
-      setMarkdown(markdown);
+      const {content} = await getMarkdown(docId);
+      setMarkdown(content);
     }
     if(!markdown) {
       if(docId) {

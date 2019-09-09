@@ -13,7 +13,7 @@ import (
 // main
 func main() {
 	// wait for elastic docker connection
-	time.Sleep(time.Second * 10)
+	time.Sleep(time.Second * 20)
 
 	// configure log
 	log.SetFlags(log.LstdFlags | log.Lshortfile)

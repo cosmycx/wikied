@@ -9,14 +9,21 @@ function toJSON(response) {
   return response.json();
 }
 
-export function saveMarkdownFiles(body, user) {
-  alert(user + ' your markdown is all saved!');
-  console.log(body);
+const ROOT = 'http://localhost:4040';
+
+export function saveMarkdownFiles(body) {
+  // alert(user + ' your markdown is all saved!');
+  // console.log(body);
   //return fetch(ES_API).then(toJSON);
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({
+      content: body
+    })
+  }
+  return fetch(ROOT +'/createinfopost', options).then(toJSON)
 }
 
 export function getMarkdown(docId) {
-  return fetch('https://jsonplaceholder.typicode.com/todos/1').then(response => {
-    return projectPage
-  })
+  return fetch(ROOT + '/getinfopostbyid?id=' + docId).then(toJSON);
 }

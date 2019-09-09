@@ -4,7 +4,7 @@ import {
   VerticalHandler, 
   Preview
 } from '../modules';
-import { saveMarkdownFiles, getMarkdown } from '../utils/api';
+import { saveMarkdownFiles, getMarkdown } from '../utils/api'; 
 import './styles.scss';
 
 export default (props) => {
@@ -12,7 +12,9 @@ export default (props) => {
   const [viewWidths, setViewWidths] = useState({left: 49, right: 49});
 
   const publish = function() {
-    saveMarkdownFiles(markdown, 'Sally');
+    saveMarkdownFiles(markdown).then(response => {
+      props.history.push('/view/' + response.id)
+    });
   }
 
   return (

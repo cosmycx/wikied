@@ -7,8 +7,8 @@ import {Switch, Route} from 'react-router-dom';
 function App() {
   return (
     <Switch>
-      <Route path="/new" render={() => {
-        return <Editor markdown='# Add Markdown Here' />
+      <Route path="/new" render={(props) => {
+        return <Editor markdown='# Add Markdown Here' {...props} />
       }}/>
       <Route path="/view/:docId" render={({match}) => (
         <View docId={match.params.docId} />
