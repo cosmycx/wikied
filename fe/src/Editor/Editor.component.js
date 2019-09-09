@@ -1,16 +1,14 @@
-import React, {useState} from 'react';
-import { 
+import React, {useState, useEffect} from 'react';
+import {
   Markdown, 
   VerticalHandler, 
-} from './modules';
-import {
   Preview
 } from '../modules';
-import { saveMarkdownFiles } from '../utils/api';
+import { saveMarkdownFiles, getMarkdown } from '../utils/api';
 import './styles.scss';
 
-export default () => {
-  const [markdown, setMarkdown] = useState('# Add Markdown Here');
+export default (props) => {
+  const [markdown, setMarkdown] = useState(props.markdown);
   const [viewWidths, setViewWidths] = useState({left: 49, right: 49});
 
   const publish = function() {
