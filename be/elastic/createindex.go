@@ -3,6 +3,7 @@ package elastic
 import (
 	"context"
 	"errors"
+	"log"
 )
 
 // CreateIndexIfNotExists ...
@@ -10,6 +11,7 @@ func (c Client) CreateIndexIfNotExists(ctx context.Context, indexName string) er
 
 	exists, err := c.elasticClient.IndexExists(indexName).Do(ctx)
 	if err != nil {
+		log.Printf("Error checking index, err: %v\n", err)
 		return err
 	} // .if
 
@@ -24,7 +26,8 @@ func (c Client) CreateIndexIfNotExists(ctx context.Context, indexName string) er
 	} // .if
 
 	if !res.Acknowledged {
-		return errors.New("CreateIndex was not acknowledged. Check that timeout value is correct.")
+		log.Printf("Error creating new index, err: %v\n", err)
+		return errors.New("create index was not acknowledged, check that timeout value is correct")
 	} // .if
 
 	return nil

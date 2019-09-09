@@ -38,14 +38,14 @@ func main() {
 			ElasticClient: elasticClient,
 		} // .server
 
-		s.ElasticClient.CreateIndexIfNotExists(ctx, elastic.IndexName)
+		_ = s.ElasticClient.CreateIndexIfNotExists(ctx, elastic.IndexName)
 
 		// initiate routes
 		s.RoutesInit()
 
 		// starting server
 		log.Printf("Starting server on port %s", port)
-		http.ListenAndServe(port, s.Router)
+		log.Fatalln(http.ListenAndServe(port, s.Router))
 	} // .else
 
 } // .main

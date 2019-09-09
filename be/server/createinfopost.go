@@ -12,46 +12,31 @@ import (
 	"net/http"
 )
 
-func (s *Server) createUser(w http.ResponseWriter, r *http.Request) {
+func (s *Server) createInfoPost(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method != http.MethodPost {
 		http.Error(w, "method not accepted", http.StatusMethodNotAllowed)
 		return
 	} // .if
 
-	var postsIn []model.PostIn
+	var infoPost model.InfoPost
 
-	err := json.NewDecoder(r.Body).Decode(&postsIn)
+	err := json.NewDecoder(r.Body).Decode(&infoPost)
 	if err != nil {
 		log.Printf("Error converting post body to json, err: %v\n", err)
 		http.Error(w, "payload json error", http.StatusBadRequest)
 		return
 	} // .if
 
-	if len(postsIn) == 0 {
-		w.Write([]byte("no payload post/s"))
+	if len(infoPost.Content) == 0 || len(infoPost.Originator) == 0 {
+		w.Write([]byte("empty payload"))
 		w.WriteHeader(http.StatusBadRequest)
+		return
 	} // .if
 
-	// adding id and created_at
-	posts := make([]model.Post, 0, len(postsIn))
-
-	for _, pin := range postsIn {
-
-		var post model.Post
-
-		post.Originator = pin.Originator
-		post.Content = pin.Content
-		post.CreatedAt = time.Now()
-		post.Id = uuid.New().String()
-		if err != nil {
-			log.Printf("error creating unique id, err: %v\n", err)
-			http.Error(w, "server error creating id", http.StatusInternalServerError)
-			return
-		} // .if
-
-		posts = append(posts, post)
-	} // .for
+	// adding more info to infopost
+	infoPost.CreatedAt = time.Now()
+	infoPost.Id = uuid.New().String()
 
 	// inserting into elastic
 	ctx := context.Background()
@@ -64,14 +49,22 @@ func (s *Server) createUser(w http.ResponseWriter, r *http.Request) {
 	} // .if
 
 	// save this post in Elastic
-	s.ElasticClient.InsertPost(ctx, posts)
+	err = s.ElasticClient.InsertPost(infoPost)
 	if err != nil {
 		log.Printf("error inserting user/s, err: %v\n", err)
 		http.Error(w, "error inserting user/s", http.StatusInternalServerError)
 		return
 	} // .if
 
+
+
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte("inserted"))
+	type id struct {
+		Id string `json:"id"`
+	}// .id
+	ids := id{
+		Id: infoPost.Id,
+	}// .ids
+	json.NewEncoder(w).Encode(&ids)
 	return
 } // .add

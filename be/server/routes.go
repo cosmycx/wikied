@@ -5,8 +5,10 @@ func (s *Server) RoutesInit() {
 
 	s.Router.HandleFunc("/", s.home)
 
-	s.Router.HandleFunc("/createuser", s.createUser)
+	s.Router.HandleFunc("/createinfopost", s.createInfoPost)
 
-	s.Router.HandleFunc("/getalluser", s.getAllUser)
+	s.Router.HandleFunc("/getallinfopost", s.getAllUser)
+
+	s.Router.HandleFunc("/getinfopostbyid", s.getInfoPostById)
 
 } // .RoutesInit

@@ -1,6 +1,6 @@
 package elastic
 
 const (
-	IndexName = "post_index"
-	docType   = "post"
+	IndexName = "infopost"
+	//docType   = "infopost"
 ) // .const
