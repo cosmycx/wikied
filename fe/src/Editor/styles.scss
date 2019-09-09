@@ -1,0 +1,55 @@
+@import "../variables.scss";
+
+.editor {
+  display: flex;
+  max-height: 100vh;
+  & > button {
+    position: absolute;
+    left: 44%;
+    top: 20px;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    padding: 10px;
+    background-color: blue;
+    transition: background-color .3s ease-in;
+    &:hover {
+      background-color: green;
+      cursor: pointer;
+    }
+  }
+  &__markdown {
+    padding: 10px;
+  }
+  &__vertical-handler {
+    height: 100%;
+    width: 2%;
+    background: $light-grey;
+    height: 100vh;
+    cursor: pointer;
+    position: relative;
+    &:before {
+      position: absolute;
+      top: 50%;
+      right: 20px;
+      content: '';
+      width: 0; 
+      height: 0; 
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent; 
+      border-right: 10px solid white;
+
+    }
+    &:after {
+      position: absolute;
+      top: 50%;
+      left: 20px;
+      content: '';
+      width: 0; 
+      height: 0; 
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid white;
+    }
+  }
+}

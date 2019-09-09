@@ -1,0 +1,12 @@
+@import "../../variables.scss";
+
+.preview__{
+  &wrapper {
+    padding: 10px;
+    overflow-y: scroll;
+    & code {
+      background: $light-grey;
+      padding: 5px;
+    }
+  }
+}
