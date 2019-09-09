@@ -15,3 +15,15 @@ services:
 #    image: docker.elastic.co/kibana/kibana:7.3.1
 #    ports:
 #      - "5601:5601"
+
+  wikied-be:
+    image: wikied-be
+    ports:
+      - "4040:4040"
+    container_name: wikied-be
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - elasticsearch

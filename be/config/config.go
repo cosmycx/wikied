@@ -14,8 +14,8 @@ var (
 // init ..
 func init() {
 
-	viper.SetDefault("ELASTIC_HOST", "http://127.0.0.1:9200")
-	viper.SetDefault("APP_PORT", "8080")
+	viper.SetDefault("ELASTIC_HOST", "http://elasticsearch:9200")//"http://127.0.0.1:9200")
+	viper.SetDefault("APP_PORT", "4040")
 
 	if os.Getenv("ENVIRONMENT") == "DEV" {
 		_, dirname, _, _ := runtime.Caller(0)

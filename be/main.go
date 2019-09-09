@@ -7,10 +7,13 @@ import (
 	server "github.com/cosmycx/wikied/server"
 	"log"
 	"net/http"
+	"time"
 )
 
 // main
 func main() {
+	// wait for elastic docker connection
+	time.Sleep(time.Second * 10)
 
 	// configure log
 	log.SetFlags(log.LstdFlags | log.Lshortfile)

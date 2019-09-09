@@ -16,5 +16,5 @@ FROM scratch
 
 COPY --from=builder /wikied/app /wikied/app
 
-EXPOSE 4444 
+EXPOSE 4040
 ENTRYPOINT [ "/wikied/app" ]
