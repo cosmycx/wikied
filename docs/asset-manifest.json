@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.52492f9d.chunk.css",
-    "main.js": "/static/js/main.b7a90742.chunk.js",
-    "main.js.map": "/static/js/main.b7a90742.chunk.js.map",
-    "runtime~main.js": "/static/js/runtime~main.f3c983a4.js",
-    "runtime~main.js.map": "/static/js/runtime~main.f3c983a4.js.map",
-    "static/js/2.f695854f.chunk.js": "/static/js/2.f695854f.chunk.js",
-    "static/js/2.f695854f.chunk.js.map": "/static/js/2.f695854f.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.a247883faf591a0941d96d65f3774ae6.js": "/precache-manifest.a247883faf591a0941d96d65f3774ae6.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/main.52492f9d.chunk.css.map": "/static/css/main.52492f9d.chunk.css.map"
+    "main.css": "/wikied/docs/static/css/main.52492f9d.chunk.css",
+    "main.js": "/wikied/docs/static/js/main.b96cb0f3.chunk.js",
+    "main.js.map": "/wikied/docs/static/js/main.b96cb0f3.chunk.js.map",
+    "runtime~main.js": "/wikied/docs/static/js/runtime~main.79d98045.js",
+    "runtime~main.js.map": "/wikied/docs/static/js/runtime~main.79d98045.js.map",
+    "static/js/2.f695854f.chunk.js": "/wikied/docs/static/js/2.f695854f.chunk.js",
+    "static/js/2.f695854f.chunk.js.map": "/wikied/docs/static/js/2.f695854f.chunk.js.map",
+    "index.html": "/wikied/docs/index.html",
+    "precache-manifest.8317ea75f2b93c8d194867ee5586828b.js": "/wikied/docs/precache-manifest.8317ea75f2b93c8d194867ee5586828b.js",
+    "service-worker.js": "/wikied/docs/service-worker.js",
+    "static/css/main.52492f9d.chunk.css.map": "/wikied/docs/static/css/main.52492f9d.chunk.css.map"
   }
 }
