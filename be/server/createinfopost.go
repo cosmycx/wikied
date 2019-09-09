@@ -28,7 +28,7 @@ func (s *Server) createInfoPost(w http.ResponseWriter, r *http.Request) {
 		return
 	} // .if
 
-	if len(infoPost.Content) == 0 || len(infoPost.Originator) == 0 {
+	if len(infoPost.Content) == 0 {
 		w.Write([]byte("empty payload"))
 		w.WriteHeader(http.StatusBadRequest)
 		return
@@ -55,7 +55,6 @@ func (s *Server) createInfoPost(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "error inserting user/s", http.StatusInternalServerError)
 		return
 	} // .if
-
 
 
 	w.WriteHeader(http.StatusOK)

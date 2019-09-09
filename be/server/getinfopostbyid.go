@@ -28,7 +28,7 @@ func (s *Server) getInfoPostById(w http.ResponseWriter, r *http.Request) {
 	infoPost, err = s.ElasticClient.GetInfoPostById(infoPost.Id)
 	if err != nil {
 		log.Printf("Error retrieve infopost, err: %v\n", err)
-		http.Error(w, "Error retrieve infopost", http.StatusInternalServerError)
+		http.Error(w, "Error retrieve infopost", http.StatusNotFound)
 		return
 	} // .if
 

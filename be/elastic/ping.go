@@ -10,7 +10,7 @@ import (
 // Ping method
 func ping(ctx context.Context, client *elasticLib.Client, url string) error {
 
-	// Ping the Elasticsearch server to get HttpStatus, version number
+	// Ping the elasticsearch server to get HttpStatus, version number
 	if client != nil {
 		info, code, err := client.Ping(url).Do(ctx)
 		if err != nil {
