@@ -9,6 +9,11 @@ import (
 
 func (s *Server) getInfoPostById(w http.ResponseWriter, r *http.Request) {
 
+	if r.Method != http.MethodGet {
+		http.Error(w, "method not accepted", http.StatusMethodNotAllowed)
+		return
+	} // .if
+
 	var infoPost model.InfoPost
 
 	err := json.NewDecoder(r.Body).Decode(&infoPost)
