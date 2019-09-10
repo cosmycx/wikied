@@ -14,6 +14,8 @@ func (s *Server) RoutesInit() {
 
 	s.Router.HandleFunc("/getinfopostbyid", s.addAccessControl(s.getInfoPostById))
 
+	s.Router.HandleFunc("/searchterm", s.addAccessControl(s.searchTerm))
+
 } // .RoutesInit
 
 // addAccessControl .. adds access control origins

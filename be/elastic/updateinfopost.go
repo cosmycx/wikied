@@ -6,7 +6,7 @@ import (
 	"log"
 )
 
-// InsertPost/s ...
+// UpdateInfoPost ...
 func (c Client) UpdateInfoPost(infoPost model.InfoPost) error {
 
 	ctx := context.Background()
@@ -29,4 +29,4 @@ func (c Client) UpdateInfoPost(infoPost model.InfoPost) error {
 	_, _ = c.elasticClient.Flush().Index(IndexName).Do(ctx)
 
 	return err // nil
-} // .InsertUsers
+} // .UpdateInfoPost
