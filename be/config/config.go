@@ -2,6 +2,7 @@ package config
 
 import (
 	"github.com/spf13/viper"
+	"log"
 	"os"
 	"path/filepath"
 	"runtime"
@@ -23,14 +24,14 @@ func init() {
 		viper.SetConfigName("config")
 		viper.SetConfigType("toml")
 		viper.AddConfigPath(filepath.Dir(dirname))
-		viper.ReadInConfig()
-		//
+		err := viper.ReadInConfig()
+		if err != nil {
+			log.Printf("Error loading env vars, err: %v\n", err)
+		}// .if
 	} else {
 		viper.AutomaticEnv()
-		//
 	} // .else
 
 	ElasticHost = viper.GetString("ELASTIC_HOST")
 	AppPort = viper.GetString("APP_PORT")
-
 } // .init
