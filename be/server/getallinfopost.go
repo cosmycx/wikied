@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func (s *Server) getAllUser(w http.ResponseWriter, r *http.Request) {
+func (s *Server) getAllInfoPost(w http.ResponseWriter, r *http.Request) {
 
 	if r.Method != http.MethodGet {
 		http.Error(w, "method not accepted", http.StatusMethodNotAllowed)
@@ -21,4 +21,4 @@ func (s *Server) getAllUser(w http.ResponseWriter, r *http.Request) {
 	} // .if
 
 	json.NewEncoder(w).Encode(&posts)
-} // .getAllUser
+} // .getAllInfoPost

@@ -35,7 +35,7 @@ func (s *Server) updateInfoPost(w http.ResponseWriter, r *http.Request) {
 	infoPost.CreatedAt = time.Now()
 
 	// save this post in Elastic
-	err = s.ElasticClient.InsertPost(infoPost)
+	err = s.ElasticClient.UpdateInfoPost(infoPost)
 	if err != nil {
 		log.Printf("error inserting user/s, err: %v\n", err)
 		http.Error(w, "error inserting user/s", http.StatusInternalServerError)

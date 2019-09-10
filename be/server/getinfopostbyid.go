@@ -12,18 +12,21 @@ func (s *Server) getInfoPostById(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "method not accepted", http.StatusMethodNotAllowed)
 		return
 	} // .if
-	id := r.URL.Query()["id"]
 
-	if len(id) == 0 {
-		w.Write([]byte("empty payload"))
+	ids := r.URL.Query()["id"]
+	if len(ids) == 0 {
+		w.Write([]byte("missing id in query string"))
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	} // .if
+	if len(ids[0]) == 0 {
+		w.Write([]byte("id is empty"))
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	} // .if
 
-	ids := id[0]
-
 	// get infopost from Elastic
-	infoPost, err := s.ElasticClient.GetInfoPostById(ids)
+	infoPost, err := s.ElasticClient.GetInfoPostById(ids[0])
 	if err != nil {
 		log.Printf("Error retrieve infopost, err: %v\n", err)
 		http.Error(w, "Error retrieve infopost", http.StatusNotFound)
@@ -31,4 +34,4 @@ func (s *Server) getInfoPostById(w http.ResponseWriter, r *http.Request) {
 	} // .if
 
 	json.NewEncoder(w).Encode(&infoPost)
-} // .getAllUser
+} // .getAllInfoPost

@@ -10,7 +10,7 @@ func (s *Server) RoutesInit() {
 	s.Router.HandleFunc("/createinfopost", s.addAccessControl(s.createInfoPost))
 	s.Router.HandleFunc("/updateinfopost", s.addAccessControl(s.updateInfoPost))
 
-	s.Router.HandleFunc("/getallinfopost", s.addAccessControl(s.getAllUser))
+	s.Router.HandleFunc("/getallinfopost", s.addAccessControl(s.getAllInfoPost))
 
 	s.Router.HandleFunc("/getinfopostbyid", s.addAccessControl(s.getInfoPostById))
 

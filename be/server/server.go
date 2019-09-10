@@ -17,6 +17,11 @@ type Server struct {
 // home |ping route, returns time
 func (s *Server) home(w http.ResponseWriter, r *http.Request) {
 
+	if r.URL.Path != "/" {
+		http.NotFound(w, r)
+		return
+	}// .if
+
 	resp := fmt.Sprintf("server running time: %v", time.Now())
 
 	w.WriteHeader(http.StatusOK)
