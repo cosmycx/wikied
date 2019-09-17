@@ -6,7 +6,7 @@ export default [
   },
   {
     id: 1235,
-    title: 'Nathional Youth Tobacco Survey',
+    title: 'National Youth Tobacco Survey',
     description: 'Pilot to electronically collect youth tobacco survey results.'
   }
 ]
