@@ -27,3 +27,7 @@ export function saveMarkdownFiles(body) {
 export function getMarkdown(docId) {
   return fetch(ROOT + '/getinfopostbyid?id=' + docId).then(toJSON);
 }
+
+export function searchMarkdown(searchTerm) {
+  return fetch(ROOT + '/searchterm?search=' + searchTerm).then(toJSON);
+}
