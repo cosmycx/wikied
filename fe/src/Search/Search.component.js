@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, Component } from 'react';
 import {Form, Container, Row, Col, Button, ListGroup} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
-import * as api from '../utils/api.js';
-import results from '../mock/searchResults';
+import { searchMarkdown } from '../utils/api.js';
 
 const linkStyle = {position: 'absolute', top: '20px', right: '20px'}
 
@@ -15,17 +14,17 @@ const Item = ({id, title, description}) => (
   </li>
 );
 
-function Search() {
+function Search () {
   const [searchResults, setResults] = useState([]);
-  debugger;
-  function search(event) {
+
+  const search = (event) => {
     event.preventDefault();
-    debugger;
-    api.searchMarkdown.then((results) => {
+    const searchTerm = document.getElementById('searchTerm').value;
+    searchMarkdown(searchTerm).then((results) => {
       setResults(results);
     })
   }
- 
+
   return (
     <>
       <Link style={linkStyle} to="/new"><Button variant="outline-info">Add New</Button></Link>
@@ -39,7 +38,7 @@ function Search() {
             </Row>
             <Row className="justify-content-sm-center">
               <Col>
-                <Form.Control type="input" placeholder="Search"></Form.Control>
+                <Form.Control id="searchTerm" type="input" placeholder="Search"></Form.Control>
               </Col>
             </Row>
           </Container>

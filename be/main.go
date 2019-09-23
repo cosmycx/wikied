@@ -2,18 +2,20 @@ package main
 
 import (
 	"context"
-	config "github.com/cosmycx/wikied/config"
-	elastic "github.com/cosmycx/wikied/elastic"
-	server "github.com/cosmycx/wikied/server"
 	"log"
 	"net/http"
 	"time"
+
+	config "github.com/cosmycx/wikied/config"
+	elastic "github.com/cosmycx/wikied/elastic"
+	seed "github.com/cosmycx/wikied/seed"
+	server "github.com/cosmycx/wikied/server"
 )
 
 // main
 func main() {
 	// wait for elastic docker connection
-	time.Sleep(time.Second * 15)
+	time.Sleep(time.Second * 30)
 
 	// configure log
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
@@ -42,6 +44,9 @@ func main() {
 		} // .server
 
 		_ = s.ElasticClient.CreateIndexIfNotExists(ctx, elastic.IndexName)
+
+		// seed the DB
+		s.SeedInfoPost(seed.Seed1, "project_1")
 
 		// initiate routes
 		s.RoutesInit()

@@ -1,4 +1,6 @@
-##### Check out the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+package seed
+
+const Seed1 = `##### Check out the [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 ---
 [Insert NG logo here](https://www.northropgrumman.com)
 
@@ -23,4 +25,4 @@ Lapina McDowell | Business Analyst | LiveByMyRules@ngc.com
 David Tsao | Developer | VueGuru@ngc.com
 ___
 
-###### Have questions about 500 Cities data? [Contact us](mailto:500cities@cdc.gov)!
+###### Have questions about 500 Cities data? [Contact us](mailto:500cities@cdc.gov)!`
