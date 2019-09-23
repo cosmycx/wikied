@@ -2,26 +2,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: go-serv
+  name: wikied-be
 spec: 
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      name: go-serv
+      name: wikied-be
   template:
     metadata:
       labels:
-        name: go-serv
+        name: wikied-be
     spec:
       terminationGracePeriodSeconds: 30
       containers:
-      - name: go-serv
-        image: quay.io/cosx/wimd
+      - name: wikied-be
+        image: docker.io/cosmycx/wikied-be
         imagePullPolicy: Always
         ports:
-        - containerPort: 8080
-      imagePullSecrets:
-      - name: cosx-pull-secret
+        - containerPort: 4040
 
 
 

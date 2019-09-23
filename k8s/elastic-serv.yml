@@ -2,12 +2,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: elastic
+  name: elasticsearch
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
   - name: http
     port: 9200
+  - name: node-node
+    port: 9300
     targetPort: 9200
   selector: 
-    name: elastic
+    name: elasticsearch

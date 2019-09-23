@@ -9,10 +9,12 @@ const Item = ({id, content, searchTerm}) => {
   const match = content.match(new RegExp(searchTerm, 'i'))
   const start = match.index - 25;
   const end = match.index + searchTerm.length + 25;
+  const title = content.match(new RegExp('(?<=\\n#)(.*?)(?=\\n)'))[0];
   const preview = content.substring(start, end);
   return (
     <li>
     <Link to={`/view/${id}`}>
+      <h1>{title}</h1>
       <p>{preview}</p>
     </Link>
   </li>

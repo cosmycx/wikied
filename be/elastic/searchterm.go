@@ -15,6 +15,7 @@ func (c Client) SearchTerm(searchTerm string) ([]model.InfoPost, error) {
 
 	// Search with a term query
 	termQuery := elasticLib.NewTermQuery("content", searchTerm)
+	log.Printf("searchTerm: %v\n", searchTerm)
 
 	searchResult, err := c.elasticClient.Search().
 		Index(IndexName).   // search in index "twitter"

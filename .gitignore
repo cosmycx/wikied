@@ -3,3 +3,5 @@
 .idea
  k8s/secret.yml
  es_data
+
+ .idea

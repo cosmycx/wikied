@@ -14,11 +14,15 @@ func (s *Server) searchTerm(w http.ResponseWriter, r *http.Request) {
 	} // .if
 
 	searchTerms := r.URL.Query()["search"]
+	log.Printf("searchTerms: %v\n", searchTerms)
+
 	if len(searchTerms) == 0 {
 		w.Write([]byte("missing search in query string"))
 		w.WriteHeader(http.StatusBadRequest)
 		return
 	} // .if
+	log.Printf("searchTerms[0]: %v\n", searchTerms[0])
+
 	if len(searchTerms[0]) == 0 {
 		w.Write([]byte("search is empty"))
 		w.WriteHeader(http.StatusBadRequest)
