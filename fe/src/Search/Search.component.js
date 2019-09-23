@@ -5,24 +5,35 @@ import { searchMarkdown } from '../utils/api.js';
 
 const linkStyle = {position: 'absolute', top: '20px', right: '20px'}
 
-const Item = ({id, title, description}) => ( 
-  <li>
+const Item = ({id, content, searchTerm}) => {
+  const match = content.match(new RegExp(searchTerm, 'i'))
+  const start = match.index - 25;
+  const end = match.index + searchTerm.length + 25;
+  const preview = content.substring(start, end);
+  return (
+    <li>
     <Link to={`/view/${id}`}>
-      <h1>{title}</h1>
-      <p>{description}</p>
+      <p>{preview}</p>
     </Link>
   </li>
-);
+  )
+};
 
 function Search () {
   const [searchResults, setResults] = useState([]);
-
+  const [searchTerm, setTerm] = useState('');
   const search = (event) => {
     event.preventDefault();
     const searchTerm = document.getElementById('searchTerm').value;
     searchMarkdown(searchTerm).then((results) => {
       setResults(results);
     })
+  }
+
+  const handleChange = (event) => {
+    const {value} = event.target;
+    setTerm(value);
+    console.log(searchTerm)
   }
 
   return (
@@ -38,7 +49,7 @@ function Search () {
             </Row>
             <Row className="justify-content-sm-center">
               <Col>
-                <Form.Control id="searchTerm" type="input" placeholder="Search"></Form.Control>
+                <Form.Control onChange={handleChange} value={searchTerm} type="input" placeholder="Search"></Form.Control>
               </Col>
             </Row>
           </Container>
@@ -46,7 +57,7 @@ function Search () {
       </Form>
       {!!searchResults.length &&
         <ul className="list-unstyled pl-0">
-          {searchResults.map(result => <Item key={result.id} {...result} />)}
+          {searchResults.map(result => <Item key={result.id} {...result} searchTerm={searchTerm} />)}
         </ul>
       }
     </>

@@ -12,9 +12,6 @@ function toJSON(response) {
 const ROOT = 'http://localhost:4040';
 
 export function saveMarkdownFiles(body) {
-  // alert(user + ' your markdown is all saved!');
-  // console.log(body);
-  //return fetch(ES_API).then(toJSON);
   const options = {
     method: 'POST',
     body: JSON.stringify({
