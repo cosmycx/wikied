@@ -11,7 +11,7 @@ CDC’s National Center for Chronic Disease Prevention and Health Promotion’s 
 
 **Who is currently working on this project?:**
  Name | Role | Email
---- | --- | ---|
+--- | --- | --- 
 Q | Data Analyst | IQ@ngc.com
 M | Project Manager | M3@ngc.com
 Christopher Johnson | Database Analyst | ILoveArcGIS@ngc.com
