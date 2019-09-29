@@ -45,8 +45,13 @@ func main() {
 
 		_ = s.ElasticClient.CreateIndexIfNotExists(ctx, elastic.IndexName)
 
-		// seed the DB
-		s.SeedInfoPost(seed.Seed1, "project_1")
+		// ---------------------------
+		// 			seed the DB
+		// ---------------------------
+		s.SeedInfoPost(seed.Seed1, seed.Seed1ID)
+		s.SeedInfoPost(seed.Seed2, seed.Seed2ID)
+		s.SeedInfoPost(seed.Seed3, seed.Seed3ID)
+
 
 		// initiate routes
 		s.RoutesInit()

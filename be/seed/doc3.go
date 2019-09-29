@@ -1,4 +1,8 @@
-# Vision and Eye Health Surveillance (VEHSS)
+package seed
+
+const (
+	Seed3ID = "project_3"
+	Seed3   = `# Vision and Eye Health Surveillance (VEHSS)
 
 ![Insert VEHSS logo here](https://github.com/Abshah600/cautious-octo-eureka/blob/master/VEHSSlogo.png?raw=true)
 ##### Explore the interactive application here: https://www.cdc.gov/visionhealth/vehss/index.html
@@ -32,4 +36,5 @@ Steven Nguyen | Developer | DevDoc@ngc.com
 
 ___
 
-###### Have questions about VEHSS data? [Contact us](mailto:ddtpubsmailbox@cdc.gov)!
+###### Have questions about VEHSS data? [Contact us](mailto:ddtpubsmailbox@cdc.gov)!`
+)
