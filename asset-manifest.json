@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/wikied/static/css/main.16101f8d.chunk.css",
+    "main.js": "/wikied/static/js/main.d010fe86.chunk.js",
+    "main.js.map": "/wikied/static/js/main.d010fe86.chunk.js.map",
+    "runtime~main.js": "/wikied/static/js/runtime~main.81284401.js",
+    "runtime~main.js.map": "/wikied/static/js/runtime~main.81284401.js.map",
+    "static/js/2.ca3dbe2d.chunk.js": "/wikied/static/js/2.ca3dbe2d.chunk.js",
+    "static/js/2.ca3dbe2d.chunk.js.map": "/wikied/static/js/2.ca3dbe2d.chunk.js.map",
+    "index.html": "/wikied/index.html",
+    "precache-manifest.7ad79938e09b1f996b1971e837d67d2c.js": "/wikied/precache-manifest.7ad79938e09b1f996b1971e837d67d2c.js",
+    "service-worker.js": "/wikied/service-worker.js",
+    "static/css/main.16101f8d.chunk.css.map": "/wikied/static/css/main.16101f8d.chunk.css.map"
+  }
+}
