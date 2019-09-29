@@ -11,12 +11,14 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.0"
   },
-  "homepage": "https://cosmycx.github.io/wikied/docs",
+  "homepage": "https://cosmycx.github.io/wikied/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
