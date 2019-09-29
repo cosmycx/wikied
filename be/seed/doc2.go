@@ -15,6 +15,7 @@ ___
 CDC’s National Center for Chronic Disease Prevention and Health Promotion’s (NCCDPHP) Success Stories application provides grantees with a tool to show how their funding is used and why their work matters. Users can setup a free account and follow the easy, step-by-step instructions to create a professionally designed 2-page story; share the story with partners, funders, and decision makers; or submit it for consideration to be included in NCCDPHP’s Success Stories Library.
 
 **Who is currently working on this project?:**
+
 Name | Role | Email
 --- | --- | --- |
 Q | Data Analyst | IQ@ngc.com
