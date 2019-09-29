@@ -34,11 +34,11 @@ func (c Client) convertAllResults(searchResult *elasticLib.SearchResult) []model
 
 	for _, hit := range searchResult.Hits.Hits {
 
-		//	log.Printf("hit.Source *&: %v\n", *&hit.Source)
-		//	log.Printf("hit.Source: %v\n", hit.Source)
+			//log.Printf("hit.Source *&: %v\n", *&hit.Source)
+			//log.Printf("hit.Source: %v\n", hit.Source)
 
 		var infoPostObj model.InfoPost
-		err := json.Unmarshal(*&hit.Source, &infoPostObj)
+		err := json.Unmarshal(hit.Source, &infoPostObj)
 		if err != nil {
 			log.Printf("Can't deserialize 'user' object : %s", err.Error())
 			continue

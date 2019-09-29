@@ -15,7 +15,7 @@ func (c Client) SearchTerm(searchTerm string) ([]model.InfoPost, error) {
 
 	// Search with a term query
 	termQuery := elasticLib.NewTermQuery("content", searchTerm)
-	log.Printf("searchTerm: %v\n", searchTerm)
+	log.Printf("elastic searchTerm: %v\n", searchTerm)
 
 	searchResult, err := c.elasticClient.Search().
 		Index(IndexName).   // search in index "twitter"
@@ -29,6 +29,8 @@ func (c Client) SearchTerm(searchTerm string) ([]model.InfoPost, error) {
 			log.Printf("Error during execution GetAll : %v\n", err)
 			return nil, err
 		} // .if
+
+	log.Printf("searchResult: %v\n", searchResult)
 
 	return c.convertAllResults(searchResult), nil
 } // .GetForTerm infopost/s

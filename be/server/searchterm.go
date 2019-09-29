@@ -14,7 +14,7 @@ func (s *Server) searchTerm(w http.ResponseWriter, r *http.Request) {
 	} // .if
 
 	searchTerms := r.URL.Query()["search"]
-	log.Printf("searchTerms: %v\n", searchTerms)
+	log.Printf("query search term: %v\n", searchTerms)
 
 	if len(searchTerms) == 0 {
 		w.Write([]byte("missing search in query string"))

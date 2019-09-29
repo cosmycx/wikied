@@ -1,0 +1,38 @@
+version: '3'
+services:
+
+  #--------------------------------------------------------------
+  elasticsearch:
+    container_name: elasticsearch
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.2.0
+    ports:
+      - "9200:9200"
+      - "9300:9300"      
+    environment:
+      - xpack.security.enabled=false
+      - discovery.type=single-node
+      - http.cors.enabled=true
+      - http.cors.allow-origin=*
+    volumes:
+      - ./es_data:/usr/share/elasticsearch/data
+    networks:
+      - wikied-net
+  #--------------------------------------------------------------
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.2.0
+    container_name: kibana
+    ports:
+      - "5601:5601"
+    environment:
+#      SERVER_NAME: kibana.example.org
+      ELASTICSEARCH_URL: http://elasticsearch:9200
+    depends_on:
+      - elasticsearch
+    networks:
+      - wikied-net
+  #--------------------------------------------------------------
+
+networks:
+  wikied-net:
+volumes:
+ es_data:

@@ -1,3 +1,3 @@
 APP_PORT=4040
-# ELASTIC_HOST=http://127.0.0.1:9200
-ELASTIC_HOST=http://elasticsearch:9200
+ELASTIC_HOST_DEV='http://127.0.0.1:9200'
+ELASTIC_HOST='http://elasticsearch:9200'
