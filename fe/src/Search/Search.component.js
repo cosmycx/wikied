@@ -7,18 +7,25 @@ const linkStyle = {position: 'absolute', top: '20px', right: '20px'}
 
 const Item = ({id, content, searchTerm}) => {
   const match = content.match(new RegExp(searchTerm, 'i'))
-  const start = match.index - 25;
-  const end = match.index + searchTerm.length + 25;
-  const title = content.match(new RegExp('(?<=\\n#)(.*?)(?=\\n)'))[0];
-  const preview = content.substring(start, end);
-  return (
-    <li>
-    <Link to={`/view/${id}`}>
-      <h1>{title}</h1>
-      <p>{preview}</p>
-    </Link>
-  </li>
-  )
+  if (match) {
+    const start = match.index - 25;
+    const end = match.index + searchTerm.length + 25;
+    let title = content.match(new RegExp('(?<=\\n#)(.*?)(?=\\n)'));
+    if (title > 0) {
+      title = title[0];
+    }
+    const preview = content.substring(start, end);
+    return (
+      <li>
+      <Link to={`/view/${id}`}>
+        <h1>{title}</h1>
+        <p>{preview}</p>
+      </Link>
+    </li>
+    )
+  }// .if
+
+  return null
 };
 
 function Search () {
@@ -57,7 +64,7 @@ function Search () {
           </Container>
         </Form.Group>
       </Form>
-      {!!searchResults.length &&
+      {!!searchResults &&
         <ul className="list-unstyled pl-0">
           {searchResults.map(result => <Item key={result.id} {...result} searchTerm={searchTerm} />)}
         </ul>
