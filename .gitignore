@@ -1,7 +1,6 @@
 .vscode
 .DS_Store
 .idea
- k8s/secret.yml
- es_data
-
- .idea
+k8s/secret.yml
+/es_data
+.idea
