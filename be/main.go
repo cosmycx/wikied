@@ -15,7 +15,7 @@ import (
 // main
 func main() {
 	// wait for elastic docker connection
-	time.Sleep(time.Second * 30)
+	time.Sleep(time.Second * 90)
 
 	// configure log
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
@@ -51,7 +51,6 @@ func main() {
 		s.SeedInfoPost(seed.Seed1, seed.Seed1ID)
 		s.SeedInfoPost(seed.Seed2, seed.Seed2ID)
 		s.SeedInfoPost(seed.Seed3, seed.Seed3ID)
-
 
 		// initiate routes
 		s.RoutesInit()
