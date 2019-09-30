@@ -9,7 +9,7 @@ function toJSON(response) {
   return response.json();
 }
 
-const ROOT = 'http://142.93.67.17:4040';
+const ROOT = 'http://wikied/api';
 
 export function saveMarkdownFiles(body) {
   const options = {
