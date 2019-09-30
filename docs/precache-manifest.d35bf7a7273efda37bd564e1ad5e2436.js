@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5c2f97e6d101dd62e987dd3dafa227a5",
+    "revision": "e8030fc2084d9ce82e478f7bb19bc6c7",
     "url": "/wikied/index.html"
   },
   {
-    "revision": "5257154a293afe3ffbbe",
+    "revision": "dab92e0bbc238c35ef46",
     "url": "/wikied/static/css/main.52492f9d.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/wikied/static/js/2.ba124ad1.chunk.js"
   },
   {
-    "revision": "5257154a293afe3ffbbe",
-    "url": "/wikied/static/js/main.2b583e8d.chunk.js"
+    "revision": "dab92e0bbc238c35ef46",
+    "url": "/wikied/static/js/main.662404c2.chunk.js"
   },
   {
     "revision": "9f340729ce18d5ec7e7e",

@@ -9,7 +9,7 @@ function toJSON(response) {
   return response.json();
 }
 
-const ROOT = 'http://localhost:4040';
+const ROOT = 'http://142.93.67.17:4040';
 
 export function saveMarkdownFiles(body) {
   const options = {
@@ -19,6 +19,17 @@ export function saveMarkdownFiles(body) {
     })
   }
   return fetch(ROOT +'/createinfopost', options).then(toJSON)
+}
+
+export function updateMarkdownFiles(body, id) {
+  const options = {
+    method: 'POST',
+    body: JSON.stringify({
+      content: body,
+      id
+    })
+  }
+  return fetch(ROOT + '/updateinfopost', options).then(toJSON);
 }
 
 export function getMarkdown(docId) {

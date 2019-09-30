@@ -12,6 +12,7 @@ export default (props) => {
   const [viewWidths, setViewWidths] = useState({left: 49, right: 49});
 
   const publish = function() {
+    debugger;
     saveMarkdownFiles(markdown).then(response => {
       props.history.push('/view/' + response.id)
     });
