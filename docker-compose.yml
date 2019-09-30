@@ -1,5 +1,6 @@
 version: '3'
 services:
+  
   traefik:
     image: traefik:1.7.18
     container_name: traefik
@@ -28,6 +29,7 @@ services:
       - wikied-be
     networks:
       - wikied-net
+
   #--------------------------------------------------------------
   elasticsearch:
     container_name: elasticsearch

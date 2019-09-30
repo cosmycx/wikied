@@ -10,18 +10,20 @@ const Item = ({id, content, searchTerm}) => {
   if (match) {
     const start = match.index - 25;
     const end = match.index + searchTerm.length + 25;
-    let title = content.match(new RegExp('(?<=\\n#)(.*?)(?=\\n)'));
-    if (title > 0) {
-      title = title[0];
+    let title = content.match(new RegExp('\n#(.*?)\n'));
+    if (title) {
+      // title[1] seems to be the group match contents.
+      // title[0] seems to be the full match.
+      title = title[1] || title[0];
     }
     const preview = content.substring(start, end);
     return (
       <li>
-      <Link to={`/view/${id}`}>
-        <h1>{title}</h1>
-        <p>{preview}</p>
-      </Link>
-    </li>
+        <Link to={`/view/${id}`}>
+          <h1>{title}</h1>
+          <p>{preview}</p>
+        </Link>
+      </li>
     )
   }// .if
 
