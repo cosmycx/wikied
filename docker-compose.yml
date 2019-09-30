@@ -1,9 +1,24 @@
 version: '3'
 services:
+  traefik:
+    image: traefik:1.7.18
+    container_name: traefik
+    restart: always
+    command: --web --docker --docker.domain=wikied.us.local
+    networks:
+      - wikied-net
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:z
   wikied-fe:
     image: wikied-fe
+    labels:
+      - "traefik.frontend.rule=Host:wikied.us"
     ports:
-      - "80:80"
+      - "3030:80"
     container_name: wikied-fe
     restart: on-failure
     build:
@@ -45,6 +60,11 @@ services:
   #--------------------------------------------------------------
   wikied-be:
     image: wikied-be
+    labels:
+      - "traefik.backend=api"
+      - "traefik.frontend.rule=Host:wikied.us; PathPrefixStrip: /api/"
+      - "traefik.enable=true"
+      - "traefik.port=4040"
     ports:
       - "4040:4040"
     container_name: wikied-be
