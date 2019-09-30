@@ -1,18 +1,18 @@
 version: '3'
 services:
-  wikied-fe:
-    image: wikied-fe
-    ports:
-      - "80:80"
-    container_name: wikied-fe
-    restart: on-failure
-    build:
-      context: ./fe
-      dockerfile: Dockerfile
-    depends_on:
-      - wikied-be
-    networks:
-      - wikied-net
+  # wikied-fe:
+  #   image: wikied-fe
+  #   ports:
+  #     - "80:80"
+  #   container_name: wikied-fe
+  #   restart: on-failure
+  #   build:
+  #     context: ./fe
+  #     dockerfile: Dockerfile
+  #   depends_on:
+  #     - wikied-be
+  #   networks:
+  #     - wikied-net
   #--------------------------------------------------------------
   elasticsearch:
     container_name: elasticsearch
